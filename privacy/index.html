@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://sourcelens.weibaba.fun/privacy/">
+<meta property="og:image" content="https://sourcelens.weibaba.fun/assets/img/logo.png">
+<meta name="description" content="源鉴（SourceLens）隐私政策 / Privacy Policy — Windows 标书文档同源比对工具，完全离线运行，零遥测。">
+<title>源鉴 SourceLens 隐私政策 / Privacy Policy</title>
+<style>
+  :root { --ink:#101b2a; --sub:#54657a; --line:#d9e3ee; --bg:#f2f6fa; --accent:#2c6189; --accent-deep:#134061; --cyan-d:#45b5f2; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0; color:var(--ink);
+         font-family:"Microsoft YaHei UI","Segoe UI",system-ui,-apple-system,sans-serif;
+         background:var(--bg); line-height:1.75; font-size:15px; }
+  .page { max-width:860px; margin:0 auto; padding:40px 28px 64px; }
+  header { border-bottom:3px solid var(--accent); padding-bottom:18px; margin-bottom:26px; }
+  header h1 { margin:0 0 6px; font-size:26px; }
+  header .date { color:var(--sub); font-size:14px; }
+  .langs { margin:0 0 26px; }
+  .langs a { display:inline-block; padding:5px 16px; margin-right:8px; border:1px solid var(--line);
+             border-radius:18px; text-decoration:none; color:var(--accent); background:#fff; font-size:14px; }
+  .langs a:hover { background:#eaf1f8; }
+  .pledge { background:#eaf4fc; border:1px solid #bcd8ec; border-left:4px solid var(--cyan-d);
+            border-radius:6px; padding:14px 18px; margin:0 0 26px; }
+  .pledge strong { color:#134061; }
+  section { background:#fff; border:1px solid var(--line); border-radius:8px;
+            padding:22px 26px; margin-bottom:18px; }
+  section h2 { font-size:18px; margin:0 0 12px; color:var(--accent-deep); }
+  table { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:#eaf1f8; }
+  ul { padding-left:22px; margin:8px 0; }
+  li { margin:3px 0; }
+  code { background:#eaf1f8; border-radius:3px; padding:1px 6px; font-size:13.5px; }
+  .contact { font-size:16px; }
+  .authority { font-size:13.5px; color:var(--sub); background:#fff; border:1px dashed var(--line);
+               border-radius:8px; padding:12px 18px; margin-top:22px; }
+  footer { text-align:center; color:var(--sub); font-size:13px; margin-top:30px; }
+  .en { display:none; }
+  html[data-lang="en"] .zh { display:none; }
+  html[data-lang="en"] .en { display:block; }
+  html[data-lang="zh"] .en { display:none; }
+  html[data-lang="zh"] .zh { display:block; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <p style="margin:0 0 10px;font-size:14px"><a href="/">&larr; 返回源鉴首页</a> &nbsp;·&nbsp; <a href="/en/" lang="en">Home</a></p>
+  <h1>源鉴（SourceLens）隐私政策</h1>
+  <div class="date">生效日期：2026 年 9 月 28 日 &nbsp;·&nbsp; Effective date: September 28, 2026</div>
+</header>
+
+<nav class="langs">
+  <a href="#zh" onclick="document.documentElement.dataset.lang='zh'">中文</a>
+  <a href="#en" onclick="document.documentElement.dataset.lang='en'">English</a>
+</nav>
+
+<!-- ==================== 中文 ==================== -->
+<div class="zh" id="zh">
+
+<div class="pledge">
+  <strong>核心承诺：</strong>源鉴<strong>完全离线运行：无网络请求、无遥测、无统计、无账号、无 Cookie。</strong>
+  你的文书内容始终留在你自己的电脑上——适配涉密环境。
+</div>
+
+<section>
+<h2>1. 处理方式：完全离线</h2>
+<p>源鉴的全部功能（文本提取、扫描件 OCR、风格统计、指纹比对、评分聚类、报告导出）均在本机完成。
+应用不包含任何联网代码、遥测上报、统计埋点或账号体系，也不使用 Cookie。</p>
+</section>
+
+<section>
+<h2>2. 数据存放在哪里</h2>
+<table>
+  <tr><th>数据</th><th>位置</th><th>说明</th></tr>
+  <tr><td>文档内容与提取结果</td><td>本机用户数据目录 <code>%APPDATA%\SourceLens\</code> 与运行目录 <code>data\</code></td><td>提取文本、分析中间结果（三级缓存，同批文档二次分析提速）</td></tr>
+  <tr><td>指纹数据与比对记录</td><td>同上本机目录（SQLite 本地历史库）</td><td>文档身份码（全文件 SHA-256）、指纹特征、历史比对记录</td></tr>
+  <tr><td>取证报告</td><td>你指定的输出位置</td><td>导出的 HTML 报告由你自行保管</td></tr>
+  <tr><td>配置与错别字词典</td><td>本机配置文件</td><td>阈值、插件启停、复核排除选择等界面配置</td></tr>
+</table>
+<p>这些数据<strong>只存在于你的电脑</strong>，不向任何服务器传输。</p>
+</section>
+
+<section>
+<h2>3. 云端历史库：可选的自建服务</h2>
+<p>「云端历史库」功能<strong>默认关闭</strong>，不开即无任何联网行为。该功能面向需要跨机器串并案的团队，
+由<strong>你自行搭建与部署</strong>（部署脚本随应用仓库提供）；启用后仅上传以下档案数据：</p>
+<ul>
+  <li>文档身份码（全文件 SHA-256）与指纹特征；</li>
+  <li>出现记录：项目名、投标公司名、时间、上报单位。</li>
+</ul>
+<p><strong>永远不上传文书正文</strong>；数据库账号仅授予 SELECT / INSERT 权限。</p>
+</section>
+
+<section>
+<h2>4. 源文件只读</h2>
+<p>比对过程不修改、不移动、不删除你的标书原文件；所有结果都写入本机数据目录或你指定的输出位置。</p>
+</section>
+
+<section>
+<h2>5. 卸载与数据残留</h2>
+<p>卸载应用<strong>不会自动删除</strong>本机数据目录（含历史库与缓存）。如不再需要这些数据，
+请在卸载后手动删除对应目录。</p>
+</section>
+
+<section>
+<h2>6. 联系我们</h2>
+<p class="contact">如有隐私相关问题，请通过微软商店页面提供的支持渠道联系开发者；也可写信到
+<a href="mailto:feedback@weibaba.fun">feedback@weibaba.fun</a>。</p>
+</section>
+
+<section>
+<h2>7. 关于本网站</h2>
+<p>本网站为纯静态 HTML 页面：不含统计分析、行为追踪、Cookie 或任何表单，
+不向任何第三方服务器发起请求（页面内的外部链接仅在<strong>你主动点击</strong>时才会跳转）。
+网站不记录、不存储任何访问者信息。</p>
+</section>
+
+<p class="authority">本文与应用仓库 README「隐私说明」同步，以应用仓库为权威。</p>
+
+</div>
+
+<!-- ==================== English ==================== -->
+<div class="en" id="en">
+
+<div class="pledge">
+  <strong>Our core promise:</strong> SourceLens <strong>runs fully offline: no network requests, no telemetry, no analytics, no accounts, no cookies.</strong>
+  Your documents stay on your computer — suitable for classified environments.
+</div>
+
+<section>
+<h2>1. Processing: Fully Offline</h2>
+<p>Every SourceLens feature (text extraction, scan OCR, style statistics, fingerprint comparison, scoring &amp; clustering, report export) runs on your machine.
+The app contains no networking code, telemetry, analytics or account system, and uses no cookies.</p>
+</section>
+
+<section>
+<h2>2. Where Data Lives</h2>
+<table>
+  <tr><th>Data</th><th>Location</th><th>Notes</th></tr>
+  <tr><td>Document text &amp; extraction results</td><td>Local user data folder <code>%APPDATA%\SourceLens\</code> and the runtime <code>data\</code> folder</td><td>Extracted text, intermediate analysis results (three-level cache for fast re-analysis)</td></tr>
+  <tr><td>Fingerprints &amp; comparison records</td><td>Same local folders (SQLite history database)</td><td>Document identity codes (full-file SHA-256), fingerprint profiles, past comparisons</td></tr>
+  <tr><td>Forensic reports</td><td>Wherever you choose to export</td><td>Exported HTML reports are yours to keep</td></tr>
+  <tr><td>Settings &amp; typo dictionary</td><td>Local configuration</td><td>Thresholds, plugin toggles, review exclusions and other UI settings</td></tr>
+</table>
+<p>This data <strong>exists only on your computer</strong> and is never sent to any server.</p>
+</section>
+
+<section>
+<h2>3. Cloud History: Optional, Self-Hosted</h2>
+<p>The "cloud history" feature is <strong>off by default</strong> — with it off, the app performs no network activity at all.
+It is intended for teams that need to link cases across machines and is <strong>deployed on infrastructure you control</strong>
+(deployment scripts ship with the app repository). When enabled, it uploads only profile data:</p>
+<ul>
+  <li>Document identity codes (full-file SHA-256) and fingerprint profiles;</li>
+  <li>Occurrence records: project name, bidder company, time, reporting organization.</li>
+</ul>
+<p><strong>Document text is never uploaded</strong>; the database account receives SELECT / INSERT privileges only.</p>
+</section>
+
+<section>
+<h2>4. Source Files Are Read-Only</h2>
+<p>Comparison never modifies, moves or deletes your bid files; all results are written to the local data folders or the output location you specify.</p>
+</section>
+
+<section>
+<h2>5. Uninstall and Leftover Data</h2>
+<p>Uninstalling the app <strong>does not automatically delete</strong> the local data folders (history database and caches included).
+If you no longer need this data, delete the folders manually after uninstalling.</p>
+</section>
+
+<section>
+<h2>6. Contact</h2>
+<p class="contact">For privacy questions, reach the developer via the support channel on the Microsoft
+Store listing, or write to <a href="mailto:feedback@weibaba.fun">feedback@weibaba.fun</a>.</p>
+</section>
+
+<section>
+<h2>7. About This Website</h2>
+<p>This website is a set of purely static HTML pages: no analytics, no behavioral tracking, no cookies,
+no forms, and no requests to any third-party server (external links open only when
+<strong>you click them</strong>). The site records and stores nothing about its visitors.</p>
+</section>
+
+<p class="authority">This page mirrors the "Privacy" section of the application repository README; the application repository is the authoritative source.</p>
+
+</div>
+
+<footer>© 2026 Weibaba · 本页面为源鉴（SourceLens）官方隐私政策 / Official privacy policy of SourceLens</footer>
+</div>
+</body>
+</html>

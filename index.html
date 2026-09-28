@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="源鉴 (SourceLens) — Windows 标书文档同源比对与取证分析工具：多份标书一起比对，从写作风格、文档指纹、报价规律三个角度辅助研判是否出自同一制作主体，证据附页码定位、铁证/强证/佐证分级，完全离线运行。">
+<meta property="og:title" content="源鉴 SourceLens — 穿透格式表象，聚焦同源痕迹">
+<meta property="og:description" content="Windows 标书同源比对与取证分析工具：写作风格 + 文档指纹 + 报价规律三维研判，证据页码定位、三级分级，HTML 取证报告导出，完全离线。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sourcelens.weibaba.fun/">
+<title>源鉴 SourceLens — 穿透格式表象，聚焦同源痕迹 | 标书文档同源比对与取证分析</title>
+<link rel="canonical" href="https://sourcelens.weibaba.fun/">
+<link rel="alternate" hreflang="zh-CN" href="https://sourcelens.weibaba.fun/">
+<link rel="alternate" hreflang="en" href="https://sourcelens.weibaba.fun/en/">
+<link rel="alternate" hreflang="x-default" href="https://sourcelens.weibaba.fun/">
+<meta property="og:image" content="https://sourcelens.weibaba.fun/assets/img/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication",
+ "name":"SourceLens 源鉴","operatingSystem":"Windows 10, Windows 11",
+ "applicationCategory":"BusinessApplication",
+ "url":"https://sourcelens.weibaba.fun/","softwareVersion":"4.0",
+ "inLanguage":["zh-CN","en"],
+ "description":"Bid-document provenance comparison and forensics for Windows: writing style, document fingerprints and bid-price patterns in one composite score, with page-level evidence citations and fully offline processing.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "screenshot":"https://sourcelens.weibaba.fun/"}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="/"><img src="/assets/img/logo.png" alt="源鉴 SourceLens">源鉴 <span class="dot">SourceLens</span></a>
+    <div class="nav-links">
+      <a class="hide-sm" href="#features">功能特性</a>
+      <a class="hide-sm" href="#workflow">分析流程</a>
+      <a class="hide-sm" href="#grading">证据分级</a>
+      <a class="hide-sm" href="#privacy">隐私承诺</a>
+      <span class="lang-switch"><b>中文</b> · <a href="/en/" hreflang="en" lang="en">English</a></span>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <img class="hero-logo" src="/assets/img/logo.png" alt="源鉴 SourceLens">
+    <h1>穿透格式表象，<br>聚焦<span class="key">同源痕迹</span>。</h1>
+    <p class="pitch">源鉴 (SourceLens) 是 Windows 桌面标书同源比对与取证分析工具：多份标书一起比对，辅助研判它们是否出自同一制作主体。</p>
+    <p class="sub">证据附页码定位、分级呈现——全部分析在你的电脑上完成，不联网、不上传。</p>
+    <div class="platform-pills">
+      <span class="pill">✔ 完全离线运行</span>
+      <span class="pill">✔ 风格 · 指纹 · 报价三维研判</span>
+      <span class="pill">✔ 证据页码定位</span>
+      <span class="pill">✔ 铁证 / 强证 / 佐证分级</span>
+      <span class="pill">✔ HTML 取证报告</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://apps.microsoft.com/detail/9N88BR67PQQ1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        从微软商店免费下载
+      </a>
+      <a class="btn btn-ghost" href="#workflow">看看怎么用</a>
+    </div>
+    <div class="ver-card">
+      <span class="ver-badge">公开测试版 v4.0</span>
+      <p>三维综合评分、围标报价规律分析、14 类文档指纹通道全面升级，全功能免费公测。
+        <small>微软商店统一签名分发；在架包版本以商店页面为准。</small></p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ============ 功能区：四块 ============ -->
+  <section class="block" id="features">
+    <h2 class="title">风格、指纹、报价，三维交叉研判</h2>
+    <p class="lead">单一角度容易被规避，三个角度同时看向一份标书——每一路都是独立证据，合成分数逐项可解释。</p>
+    <div class="feat-grid">
+
+      <div class="feat">
+        <div class="ico c1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <h3>三维综合评分</h3>
+        <p class="note">文档指纹证据、写作风格、报价规律三路信号合成一个综合分，按高 / 中 / 低风险分级提示。</p>
+        <ul class="flist">
+          <li><b>逐项可解释</b>：每一分都对应看得见的证据，不接受「黑箱分数」</li>
+          <li><b>阈值可调</b>：风险分级线随你的审查尺度调整，即时重新分组</li>
+          <li><b>人机分工</b>：机器把可疑对浮出水面，最终认定始终留给人工复核</li>
+        </ul>
+      </div>
+
+      <div class="feat">
+        <div class="ico c2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3>围标报价规律分析</h3>
+        <p class="note">自动抽取各标书报价清单金额，识别一组报价之间可疑的规律性特征，条形图直观对比。</p>
+        <ul class="flist">
+          <li><b>一屏看清</b>：报价条形对比，谁和谁「心有灵犀」一眼可辨</li>
+          <li><b>计入证据</b>：规律命中进入综合评分，并在证据详情给出对级明细</li>
+          <li><b>防误伤</b>：内置多重防护判断，正常报价不会被轻易误判</li>
+        </ul>
+      </div>
+
+      <div class="feat">
+        <div class="ico c3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3>写作风格画像</h3>
+        <p class="note">像笔迹鉴定——用词、句长、标点、套话、数量表述、词性文风、共现错别字，七项习惯加权合成风格相似度。</p>
+        <ul class="flist">
+          <li><b>共现错别字</b>是最强风格信号——同一处错，暴露同一双手</li>
+          <li><b>近千对领域错词词典</b>：只按词典精确匹配，不猜不蒙</li>
+          <li><b>两键复核</b>：错别字「采信 / 排除」批量处理，排除的选择持久记住</li>
+        </ul>
+      </div>
+
+      <div class="feat">
+        <div class="ico c4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>文档指纹取证</h3>
+        <p class="note">像物证鉴定——14 类独立通道检查「内容之外」的痕迹：元数据、图片、编辑谱系、隐藏内容……</p>
+        <ul class="flist">
+          <li><b>共享实体锁定</b>：电话、邮箱、证件号、账号跨文档雷同直接作为高等级证据</li>
+          <li><b>改写难逃</b>：文档结构、近似指纹、图片属性——改了文字也抹不掉</li>
+          <li><b>页码定位</b>：每条证据可回原文核对，铁证 / 强证 / 佐证分级标注</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ 分析流程 ============ -->
+  <section class="block" id="workflow">
+    <h2 class="title">五步，从一堆标书到一份取证报告</h2>
+    <p class="lead">PDF / DOCX / DOC 混合添加，扫描件自动离线 OCR；同批文档二次分析秒级完成。</p>
+    <div class="step-grid">
+      <div class="step">
+        <span class="no">1</span>
+        <b>添加文档</b>
+        <small>2 份以上标书混合添加；扫描页自动 OCR，全程离线</small>
+      </div>
+      <div class="step">
+        <span class="no">2</span>
+        <b>智能解析</b>
+        <small>从文件名识别投标公司名填入列表，可人工核对修改</small>
+      </div>
+      <div class="step">
+        <span class="no">3</span>
+        <b>一键比对</b>
+        <small>提取文本 → 剔除公共模板 → 风格统计 → 打分 → 聚类 → 指纹比对</small>
+      </div>
+      <div class="step">
+        <span class="no">4</span>
+        <b>查看结果</b>
+        <small>报价规律 / 聚类分组 / 匹配矩阵 / 证据详情 / 指纹明细 / 历史比对</small>
+      </div>
+      <div class="step">
+        <span class="no">5</span>
+        <b>导出报告</b>
+        <small>HTML 取证报告按时间戳命名，证据全部附页码</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 证据分级 ============ -->
+  <section class="block" id="grading">
+    <h2 class="title">不是所有证据都一样可靠</h2>
+    <p class="lead">源鉴按「被篡改的难度」给证据分级，帮你把注意力放在刀刃上。</p>
+    <div class="grade-row">
+      <div class="grade grade-hard">
+        <b>铁证级</b>
+        <small>近乎自证的同源信号——刻意规避也极难抹净，单条即可显著抬升风险等级</small>
+      </div>
+      <div class="grade grade-strong">
+        <b>强证级</b>
+        <small>多通道互相印证的实质性证据，构成研判的主要依据</small>
+      </div>
+      <div class="grade grade-soft">
+        <b>佐证级</b>
+        <small>环境类旁证，仅供参考——已明确标注「可修改、伪造，需甄别」</small>
+      </div>
+    </div>
+    <div class="honest">
+      诚实条款：所有结论均为辅助研判，最终认定以人工复核原文为准；元数据缺失或被清空不等于不同源；请在合法授权范围内使用（招投标监督、司法取证、内部合规审查等场景）。
+    </div>
+    <div class="tag-row" style="margin-top:16px">
+      <span class="tag">21 项内置指标全部插件化</span>
+      <span class="tag">逐项启停</span>
+      <span class="tag">支持外挂扩展</span>
+      <span class="tag">文档身份码跨案件串并</span>
+      <span class="tag">本地 / 自建云端历史库</span>
+    </div>
+  </section>
+
+  <!-- ============ 隐私承诺 ============ -->
+  <div class="pledge" id="privacy">
+    <h3>隐私承诺：全本地，零遥测</h3>
+    <p>源鉴的全部比对与分析都在你自己的电脑上完成：无网络请求、无遥测、无统计、无账号、无 Cookie。
+    文书内容不离开本机，适配涉密环境。详见<a href="/privacy/">隐私政策</a>。</p>
+  </div>
+
+  <!-- ============ 赞助区 ============ -->
+  <div class="sponsor">
+    <div class="sponsor-text">
+      <h3>帮到了你？请作者喝杯咖啡<button class="coffee-btn" type="button" aria-label="微信收款码" title="点我，请作者喝杯咖啡" onclick="var m=document.getElementById('qr-modal');m.style.display=(m.style.display==='flex')?'none':'flex';">☕</button></h3>
+      <p>如果源鉴 SourceLens 帮到了你，欢迎请作者喝杯咖啡——你的支持就是持续更新的动力。赞助不会带来任何功能差异。</p>
+    </div>
+  </div>
+
+  <!-- 收款码弹层（fixed 定位，点击空白关闭） -->
+  <div id="qr-modal" class="qr-modal" onclick="this.style.display='none'">
+    <div class="qr-card" onclick="event.stopPropagation()">
+      <img src="assets/img/donate_qr.jpg" alt="微信收款码">
+      <span>微信扫一扫 · 请作者喝杯咖啡</span>
+      <button type="button" onclick="document.getElementById('qr-modal').style.display='none'">✕</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="cols">
+      <div style="max-width:320px">
+        <h4>源鉴 SourceLens</h4>
+        <p>Windows 标书文档同源比对与取证分析工具：写作风格、文档指纹、报价规律三维研判，证据附页码定位。</p>
+      </div>
+      <div>
+        <h4>产品</h4>
+        <ul>
+          <li><a href="#features">功能特性</a></li>
+          <li><a href="#workflow">分析流程</a></li>
+          <li><a href="#grading">证据分级</a></li>
+          <li><a href="https://apps.microsoft.com/detail/9N88BR67PQQ1">微软商店</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>支持</h4>
+        <ul>
+          <li>Bug 与功能建议：微软商店页面支持渠道</li>
+          <li>联系邮箱：<a href="mailto:feedback@weibaba.fun">feedback@weibaba.fun</a></li>
+          <li>GitHub：<a href="#">即将开放</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>法律</h4>
+        <ul>
+          <li><a href="/privacy/">隐私政策 / Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 Weibaba · 源鉴 SourceLens · 本站为纯静态页面，不收集任何数据</p>
+  </div>
+</footer>
+
+</body>
+</html>
