@@ -83,7 +83,7 @@ Hero 渐变：`#050C1E → #134061 → #2C6189`（135°）。
 README.md AGENTS.md docs/site-design.md .gitignore
 ```
 
-主站信息架构（锚点）：**Hero（居中 logo + slogan「穿透格式表象，聚焦同源痕迹」+ 一句话定位 +
+主站信息架构（锚点）：**Hero（居中 logo + slogan「穿透格式表象&nbsp;&nbsp;聚焦同源痕迹」（单行无标点两空格分隔，v1.0.1）+ 一句话定位 +
 特性徽章行 + 商店下载按钮 + 版本卡）→ 功能区 `#features`（四块：三维综合评分 / 围标报价规律 /
 写作风格画像 / 文档指纹取证）→ 分析流程 `#workflow`（五步芯片：添加文档 → 智能解析 → 一键比对
 → 结果视图 → 导出报告）→ 证据分级 `#grading`（铁证/强证/佐证芯片 + 诚实使用条款）→
@@ -123,5 +123,6 @@ GitHub 占位 `#`）**。
 | 日期 | 版本 | 说明 |
 |---|---|---|
 | 2026-09-28 | v1.0.0 | 首版上线：中文主站 `index.html`（Hero + 功能四块 + 流程五步 + 证据分级 + 隐私承诺 + 赞助区 + 页脚）；英文版 `en/index.html`（逐节对应）；隐私政策 `privacy/index.html`（中英双语）；全站样式 `assets/style.css`；品牌图 `assets/img/logo.png`、`logo-170.png`、收款码 `donate_qr.jpg`；`favicon.ico`、`favicon.png`、`apple-touch-icon.png`；`robots.txt`、`sitemap.xml`、`_headers`、`.well-known/security.txt`、`.gitignore`；`README.md`、`AGENTS.md`、本文档 |
+| 2026-09-28 | v1.0.1 | Hero 标语改版（用户指示）：中文「穿透格式表象 / 聚焦同源痕迹」两短句合并**同一行**，取消标点，以**两空格分隔**（HTML 以 `&nbsp;&nbsp;` 固化，防空白折叠）。副文案两句（定位句与隐私句）**去除句尾标点**，并在自然语义边界换行（定位句在「取证分析工具」后断行、去掉行尾冒号；隐私句在「分级呈现」后断行、去掉破折号）；`<title>` 与 `og:title` 中标语同步为无标点空格分隔形式；站点 README 头部标语同步。英文页适配（英文等宽排版限制）：h1 保持两短句结构、去破折号与句点、`<br>` 分行；pitch / sub 去句尾标点后自然换行（不加 `<br>`） |
 
 > 注：提交信息仅含版本号，改动说明只记录于本表。
