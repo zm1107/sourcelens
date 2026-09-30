@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://sourcelens.weibaba.fun/help/">
+<meta name="description" content="源鉴 SourceLens 用户手册（4.0）：准备与启动、界面总览、比对分析流程、历史数据库、错别字词典、OCR 转换与结果解读要点。">
+<title>源鉴 SourceLens 用户手册 · 4.0</title>
+<style>
+  :root { --ink:#1f2937; --mut:#6b7280; --line:#d9e3ee; --brand:#134061; --bg:#ffffff; --soft:#f2f6fa; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0 16px 64px; background:var(--bg); color:var(--ink);
+         font-family:"Microsoft YaHei UI","Segoe UI",system-ui,sans-serif;
+         font-size:15px; line-height:1.75; }
+  main { max-width: 860px; margin: 0 auto; }
+  .toplink { padding:18px 0 0; font-size:13.5px; }
+  .toplink a { color:var(--brand); text-decoration:none; }
+  .toplink a:hover { text-decoration:underline; }
+  header.hero { border-bottom:3px solid var(--brand); padding:18px 0 18px; margin-bottom:22px; }
+  h1 { font-size:26px; margin:0 0 6px; color:var(--brand); }
+  .sub { color:var(--mut); font-size:13.5px; }
+  .sub a { color:var(--brand); }
+  nav.toc { background:var(--soft); border:1px solid var(--line); border-radius:8px;
+            padding:14px 20px; margin-bottom:26px; font-size:14px; }
+  nav.toc b { display:block; margin-bottom:6px; }
+  nav.toc a { color:var(--brand); text-decoration:none; margin-right:14px; white-space:nowrap; }
+  nav.toc a:hover { text-decoration:underline; }
+  h2 { font-size:19px; color:var(--brand); border-left:4px solid var(--brand);
+       padding-left:10px; margin:34px 0 12px; scroll-margin-top:12px; }
+  h3 { font-size:16px; margin:20px 0 8px; }
+  ol.steps > li { margin:10px 0; padding-left:4px; }
+  ul { margin:8px 0; padding-left:22px; }
+  li { margin:4px 0; }
+  .note { background:#fffbeb; border:1px solid #fde68a; border-radius:6px;
+          padding:10px 14px; margin:12px 0; font-size:14px; }
+  .note b:first-child { color:#92400e; }
+  .kbd { background:var(--soft); border:1px solid var(--line); border-radius:4px;
+         padding:1px 6px; font-family:Consolas,monospace; font-size:13px; }
+  code { background:var(--soft); border-radius:4px; padding:1px 5px;
+         font-family:Consolas,monospace; font-size:13px; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--soft); }
+  footer { margin-top:44px; padding-top:14px; border-top:1px solid var(--line);
+           color:var(--mut); font-size:13px; }
+  @media print { body { font-size:12.5px; } nav.toc { display:none; } }
+</style>
+</head>
+<body>
+<main>
+<div class="toplink"><a href="/">&larr; 返回源鉴首页</a> &nbsp;·&nbsp; <a href="/en/" lang="en">Home</a></div>
+<header class="hero">
+  <h1>源鉴 SourceLens 用户手册</h1>
+  <div class="sub">本文对应 <b>4.0</b> 版本，内容以发布的软件为准；功能口径变更时随版本一并更新。
+    English manual: <a href="/en/help/" hreflang="en" lang="en">User Guide (English)</a></div>
+</header>
+
+<nav class="toc">
+  <b>目录</b>
+  <a href="#s1">一、界面总览</a><a href="#s2">二、比对分析流程</a>
+  <a href="#s3">三、历史数据库</a><a href="#s4">四、错别字词典</a><a href="#s5">五、OCR 转换</a><a href="#s6">六、结果解读要点</a>
+</nav>
+
+<h2 id="s1">一、界面总览</h2>
+<p>主界面两个页签：<b>比对分析</b>（日常主流程）与 <b>OCR 转换</b>（独立转换工具）。菜单栏：</p>
+<ul>
+  <li><b>文件</b>：添加文件 / 添加文件夹、导出报告、退出；</li>
+  <li><b>参数指标</b>：分析参数…（风险阈值 / 并行核数 / 启用文档指纹，含指标插件入口）、指标插件…、启用文档指纹（勾选）；</li>
+  <li><b>设置</b>：管理错别字词典（全部生效词条，支持增删改与空格分隔 CSV 导入导出）、比对时查询本地历史库（勾选）、比对完成自动入库（勾选）、云端库配置、本地数据管理；</li>
+  <li><b>帮助</b>：使用说明（本文件）、关于（版本、官网 <a href="https://sourcelens.weibaba.fun">https://sourcelens.weibaba.fun</a>、反馈邮箱 feedback@weibaba.fun）。</li>
+</ul>
+<p>主界面布局：文件操作 + 项目名称（<b>* 必填</b>，红色提示）+「分析参数…」按钮 + 配置摘要（阈值 / 并行 / 指纹 / 词典条数）+「错别字复核…」按钮 + 文件列表 + 比对按钮 + 六个结果页签。</p>
+
+<h2 id="s2">二、比对分析流程</h2>
+<ol class="steps">
+  <li><b>添加文件</b>：支持多选；文件列表列为 文件名 / 大小 / 类型 / 投标公司 / 状态。<span class="kbd">Del</span> 键或右键菜单可移除选定行；表头点击可排序。<b>载入后会自动智能解析投标公司</b>（仅填空不覆盖）：自动填入的单元格以<b>蓝色</b>显示并悬停提示「供参考，需用户确认」，双击核对或修改后转正常色；未能识别的留空可手动填写。</li>
+  <li><b>维护投标公司</b>（历史库功能相关）：点击「智能解析公司名」随时重新识别（同样仅填空），双击「投标公司」单元格可手工修改；上方「项目名称」整批填写——<b>必填项</b>：为空时标签以警示色显示「项目名称（* 必填）」且输入框浅黄底，填写后恢复；未填写时无法开始比对。</li>
+  <li><b>设置参数</b>：
+    <ul>
+      <li>高风险阈值 / 中风险阈值（默认 60 / 30）：修改后立即重判分组，无需重新分析；</li>
+      <li>并行核数：OCR 并行度；</li>
+      <li>文档指纹总开关：关闭后跳过指纹通道（指纹证据不再计入风险积分）。</li>
+    </ul>
+  </li>
+  <li><b>选择指标插件</b>：点击参数区「指标插件…」按钮打开设置窗口——每项指标均可勾选启停并自定义权重分值（0.00–1.00）；<b>所有启用指标的权重合计必须恰为 1.00（100%）</b>——不足或超出都会红色强提醒且无法保存。指标权重用于「文风相似」证据项的风格通道聚合；指纹指标注明证据级别说明；标注「（耗时）」或「（默认关闭）」的指标（噪声相关检测、渲染断行比对）按需开启——渲染断行比对需本机 Office。恢复默认可一键还原全部启停与权重。保存后下次比对生效。</li>
+</ol>
+<div class="note"><b>评分体系（证据累加制）：</b>总分 = 各证据项累加的风险积分（0–100）——铁证级指纹 +55（含<b>元数据特征值吻合</b>：双方作者/最后修改者/公司为相同的真实专属值，如同名真实姓名——可伪造字段却未清除且一致，近乎自证同源；而匹配不上或为空不降低风险）、强证据指纹命中率 ≥85%/≥70%/≥50% 记 +40/+28/+18、人工采信错别字 +12/个、<b>≥50 字完全相同大段 +15/处</b>、文风相似 ≥85%/≥70%/≥50% 记 +12/+8/+4、环境类指纹佐证 +2/类；渲染断行吻合率 &lt;35%（版式实证发散）为消除项：总分 −25 且封顶 25。累计分 ≥ 高风险阈值（默认 60）→ <b>高风险</b>，≥ 中风险阈值（默认 30）→ <b>中风险</b>，否则<b>低风险</b>。每对的证据明细在证据详情页逐项展示。</div>
+<ol class="steps" start="5">
+  <li><b>开始比对</b>：进度条逐阶段推进（提取 → 指纹 → 切分/模板剔除 → 特征 → 两两比对 → 聚类 → 历史库），文件状态列逐个更新（待分析 → 已提取 → 已提取·指纹完成 → 分析完成）；运行日志带时间戳记录各阶段，供复核归档。
+    <div class="note"><b>扫描件识别（两种模式）：</b>默认「快档」——只对连文字层都没有的页做 OCR，带薄文字层（页眉/页码/印章）的扫描页按这层文字参与分析；如需把这类页也整页识别，在「分析参数…」勾选<b>「全量 OCR（深度识别扫描页）」</b>，点「开始比对」时会先弹窗给出本次待识别页数与预计耗时（按 8 线程约 1.25 秒/页估算，可选「本次跳过」只跳这一次）。识别进度按「文档 i/N · OCR：已完成/总页数」逐页推进，日志结束时给出「原生文字页 / OCR 页」页数；结果按文档写入缓存，之后重跑秒级完成（中途取消最多丢当前这一份的 OCR 结果）。扫描页较多时可调高并行线程数。</div>
+  </li>
+  <li><b>错别字人工复核</b>：比对完成后，若生效词典在本轮文档中命中<b>双方共现</b>的错别字，会<b>第一时间弹出复核窗口</b>——匹配范围为每份文档的<b>整篇全文</b>（含公共模板段落中的命中；只在单份文档出现的写法不上榜），每条显示疑似错词、正确写法、「出现文档」、双方文档中的摘录句（错词前后各 5 字，错词以<b>红色粗体</b>标出）与页码（A 页码 / B 页码），供人工识别：
+    <ul>
+      <li><b>出现文档</b>：该写法命中的文档序号（英文逗号分隔，如「1,3」）；采信后计入评分。列宽固定、内容超出时自动换行；「文档A/B页码」两列同样固定列宽、超出自动换行；句子与判定相关列始终完整显示；</li>
+      <li><b>采信</b>：确为错别字——可计分项<b>纳入本次评分</b>（+12/个，同源强信号），不涉及以后批次；</li>
+      <li><b>排除</b>：认定为正确表达——不纳入评分，且<b>今后不再判定该词（长期生效）</b>；再点同一键可取消判定；</li>
+      <li><b>未处理</b>：默认不纳入本次评分且不影响今后；</li>
+      <li><b>批量处理</b>：按住 <span class="kbd">Ctrl</span> / <span class="kbd">Shift</span> 多选行后，用窗口底部「批量采信 / 批量排除」一次处理（未多选时两键灰色不可用）；</li>
+      <li><b>手动唤起</b>：参数区「错别字复核…」按钮可随时打开复核窗口（不必等比对自动弹出）——列出全部词典命中并预填当前判定，可改判或取消，应用后即时重算；</li>
+      <li>「应用并重算」即时按判定重算总分、判定与聚类（无需重新分析）；「暂不处理」沿用现评分，下次比对再问。</li>
+    </ul>
+  </li>
+  <li><b>查看结果</b>（六个页签）：
+    <ul>
+      <li><b>围标报价规律</b>（检出报价时显示）：批次结论文字 + 各文档金额柱状图（从低到高，标出差价与差额比例）+ <b>R1–R5 逐规则小图</b>——等差序列（相邻差相对均值）/ 固定比例（比值散点与常见让利比例目标线）/ 同尾数（末 2、3 位数字行）/ 倍数关系（相对最低价的倍数与整数倍刻度）/ 极差率（极差带与阈值带）；红=命中、灰=未命中，图上数值与上方规则结论同源；</li>
+      <li><b>聚类分组</b>：疑似同源分组。<b>成组规则与两两矩阵一致</b>——任一对风险积分达到高风险阈值即归入同一组（连通分组），不会出现「矩阵里互相高风险、聚类却孤立」的情况；组行分数为<b>组内全部文档对（两两）风险积分的算术平均</b>（悬停可见组内对明细与成组规则），文档行分数为该文档与组内其他文档的最高对分；</li>
+      <li><b>两两匹配矩阵</b>：每对文档的风险积分与风险判定（高风险 / 中风险 / 低风险），颜色越红风险越高；</li>
+      <li><b>证据详情</b>：下拉选择文档对（按风险积分降序），头部展示<b>风险积分与证据累加明细</b>，逐插件展示命中证据（共现错别字 / 共现高频用词 / 共现套话，页码全列出不省略）与高相似段落；</li>
+      <li><b>文档指纹</b>：全部指纹指标的全量明细表（指标 / 状态 / 级别 / 比对结果），铁证 / 强证 / 佐证三级；「已比对、未发现吻合」以灰色注明；格式不适用 / 无数据 / 开关未开分别注明原因；</li>
+      <li><b>历史比对</b>：本批文档按身份码在本地 / 云端历史库的命中明细（历史项目 / 公司 / 文件名 / 时间 / 上报单位）。</li>
+    </ul>
+  </li>
+  <li><b>调整阈值</b>：结果出来后改阈值即时重组分组。</li>
+  <li><b>导出报告</b>：HTML 格式，文件名带时间戳前缀（<code>YYYYMMDDHHMMSS_源鉴·同源比对分析报告.html</code>），六章结构（聚类分组 / 矩阵 / 清单 / 证据 / 指纹 / 历史库）。</li>
+</ol>
+
+<h2 id="s3">三、历史数据库</h2>
+<ul>
+  <li><b>身份码</b>：全文件 SHA-256。文件改名、复制、传输后号码不变；内容修改后号码改变。</li>
+  <li><b>本地库</b>：零配置，运行目录 <code>data\history.db</code>；「比对时查询本地库」「比对完成自动入库」默认开启。先查后写：本次入库的记录自下一轮比对起参与命中。</li>
+  <li><b>云端库</b>（可选）：设置区启用并填写 PostgreSQL 连接，可分别开启「云端历史比对」「自动上传」；上报单位名称随记录展示。云端仅存档案数据（身份码 / 指纹 / 出现记录），不含文书正文。</li>
+</ul>
+
+<h2 id="s4">四、错别字词典</h2>
+<p>「设置 → 管理错别字词典」：管理<b>全部生效词条</b>（内置 981 条 + 用户增改），支持双击编辑、添加、删除（内置词条同样可删）与<b>全量 CSV 导入导出</b>——每行「错误写法 正确写法」，空格分隔；导出后修改再导入即可完成删除与方向修正，导入时自动核对方向（疑似颠倒的行会提示确认）。覆盖层持久保存于 <code>%APPDATA%\SourceLens\typos_extra.csv</code>（增改）与 <code>typos_removed.csv</code>（删除），下次启动自动生效。共现错别字是风格通道的重要信号，词典越准结果越可靠。</p>
+<div class="note"><b>仅按词典判断：</b>错别字只按词典精确匹配判断（内置词典 981 条 + 用户自定义），4.0 起取消了旧的「4 字长度上限」与「疑似写法」通道（分词误判过高）——词典词条为精确子串匹配，长词条（如「资格审查→资格申查」）同样准确，且匹配容忍词内换行与少量空格（PDF 逐行提取、OCR 常把词切断）。<b>匹配范围为每份文档的整篇全文</b>（公共模板段落中的错别字同样匹配、同样计分）；复核窗口只列出<b>双方共现</b>的写法作为同源信号，只在单份文档出现的错别字不上榜、不计分（每次比对后的运行日志会打印「错别字词典」统计行与共现词表，可据此确认词典是否生效）。发现误报条目直接在词典管理中删除即可。</div>
+
+<h2 id="s5">五、OCR 转换</h2>
+<p>「OCR 转换」页签：选择 PDF 文件（可多选）→ 输出格式（txt / docx）与输出目录 → 开始转换。扫描件自动 OCR；<b>比对时的扫描页判定</b>同时看「文字是否稀疏」与「是否以整页图片为主」——扫描件常带一层很薄的文字层（页眉/页码/印章，几十字），只按字数判会把它当普通文字页放过、正文读不到，故此类页一律走 OCR（转换结果同样按文件缓存）。</p>
+
+<h2 id="s6">六、结果解读要点</h2>
+<ul>
+  <li>风格分数 ≥80 同人倾向、60–80 存疑、&lt;60 不同人倾向（默认阈值，可校准）；</li>
+  <li>多通道互证才可靠：风格高分 + 指纹铁证同时出现时结论最强；单一佐证仅作线索；</li>
+  <li>佐证类证据（元数据、排版等）可修改、伪造，需甄别；元数据缺失不等于不同源；</li>
+  <li>噪声相关检测为实验性指标：未检出强相关不等于不同源（压缩与二值化会摧毁噪声信息）；</li>
+  <li>RSID 命中可能来自共用模板，需结合模板情况复核；</li>
+  <li>本工具仅作辅助研判，最终认定请以人工复核原文为准。</li>
+</ul>
+
+<footer>源鉴 SourceLens 4.0 · 用户手册 · 内容以发布的软件版本为准 · 官网 <a href="https://sourcelens.weibaba.fun">sourcelens.weibaba.fun</a> · 反馈 <a href="mailto:feedback@weibaba.fun">feedback@weibaba.fun</a></footer>
+</main>
+</body>
+</html>

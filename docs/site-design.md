@@ -75,6 +75,8 @@ Hero 渐变：`#050C1E → #134061 → #2C6189`（135°）。
 ```
 /                     中文主站（lang=zh-CN）
 /en/                  English（lang=en）
+/help/                用户手册（中文，源 = 应用仓库 docs/help/usage-zh.html，v1.0.2 起）
+/en/help/             User Guide（English，源 = 应用仓库 docs/help/usage-en.html）
 /privacy/             隐私政策（中英同页切换，onclick 切换 data-lang，无框架无存储）
 /assets/style.css     全站唯一样式
 /assets/img/          logo.png（512，og:image）、logo-170.png、donate_qr.jpg
@@ -124,5 +126,6 @@ GitHub 占位 `#`）**。
 |---|---|---|
 | 2026-09-28 | v1.0.0 | 首版上线：中文主站 `index.html`（Hero + 功能四块 + 流程五步 + 证据分级 + 隐私承诺 + 赞助区 + 页脚）；英文版 `en/index.html`（逐节对应）；隐私政策 `privacy/index.html`（中英双语）；全站样式 `assets/style.css`；品牌图 `assets/img/logo.png`、`logo-170.png`、收款码 `donate_qr.jpg`；`favicon.ico`、`favicon.png`、`apple-touch-icon.png`；`robots.txt`、`sitemap.xml`、`_headers`、`.well-known/security.txt`、`.gitignore`；`README.md`、`AGENTS.md`、本文档 |
 | 2026-09-28 | v1.0.1 | Hero 标语改版（用户指示）：中文「穿透格式表象 / 聚焦同源痕迹」两短句合并**同一行**，取消标点，以**两空格分隔**（HTML 以 `&nbsp;&nbsp;` 固化，防空白折叠）。副文案两句（定位句与隐私句）**去除句尾标点**，并在自然语义边界换行（定位句在「取证分析工具」后断行、去掉行尾冒号；隐私句在「分级呈现」后断行、去掉破折号）；`<title>` 与 `og:title` 中标语同步为无标点空格分隔形式；站点 README 头部标语同步。英文页适配（英文等宽排版限制）：h1 保持两短句结构、去破折号与句点、`<br>` 分行；pitch / sub 去句尾标点后自然换行（不加 `<br>`） |
+| 2026-09-30 | v1.0.2 | 新增**用户手册**（用户指示：把软件使用说明放入网站，中文一份、英文一份）：`/help/`（中文）与 `/en/help/`（英文）。内容源 = 应用仓库 `docs/help/usage-zh.html` / `usage-en.html`（4.0 口径）。**口径（用户三轮指示）**：①手册只介绍功能与使用，**以发布的软件为准，不涉及开发中的内容**——剔除整章「准备与启动」（sourcelens.cmd / 源码运行 / 安装版 exe 等启动方式），剔除 `deploy/` 部署脚本引用与「应用仓库」表述，页尾改为「内容以发布的软件版本为准」；②其余内容逐字保留、章节重编号（中文一～六、英文 1–6）。站点适配：页头加返回首页与中英互链（`/help/` ↔ `/en/help/`）、品牌色对齐站点 token（--brand→#134061）、补充 favicon / meta description / canonical。主站导航与页脚「产品」列新增「用户手册 / User Guide」入口；`sitemap.xml` 收录两页（priority 0.8） |
 
 > 注：提交信息仅含版本号，改动说明只记录于本表。

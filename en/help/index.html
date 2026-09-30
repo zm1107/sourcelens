@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://sourcelens.weibaba.fun/en/help/">
+<meta name="description" content="SourceLens User Guide (4.0): getting started, interface overview, the comparison workflow, history database, typo dictionary, OCR conversion and how to read the results.">
+<title>SourceLens User Guide · 4.0</title>
+<style>
+  :root { --ink:#1f2937; --mut:#6b7280; --line:#d9e3ee; --brand:#134061; --bg:#ffffff; --soft:#f2f6fa; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:0 16px 64px; background:var(--bg); color:var(--ink);
+         font-family:"Segoe UI",system-ui,sans-serif; font-size:15px; line-height:1.7; }
+  main { max-width: 860px; margin: 0 auto; }
+  .toplink { padding:18px 0 0; font-size:13.5px; }
+  .toplink a { color:var(--brand); text-decoration:none; }
+  .toplink a:hover { text-decoration:underline; }
+  header.hero { border-bottom:3px solid var(--brand); padding:18px 0 18px; margin-bottom:22px; }
+  h1 { font-size:26px; margin:0 0 6px; color:var(--brand); }
+  .sub { color:var(--mut); font-size:13.5px; }
+  .sub a { color:var(--brand); }
+  nav.toc { background:var(--soft); border:1px solid var(--line); border-radius:8px;
+            padding:14px 20px; margin-bottom:26px; font-size:14px; }
+  nav.toc b { display:block; margin-bottom:6px; }
+  nav.toc a { color:var(--brand); text-decoration:none; margin-right:14px; white-space:nowrap; }
+  nav.toc a:hover { text-decoration:underline; }
+  h2 { font-size:19px; color:var(--brand); border-left:4px solid var(--brand);
+       padding-left:10px; margin:34px 0 12px; scroll-margin-top:12px; }
+  h3 { font-size:16px; margin:20px 0 8px; }
+  ol.steps > li { margin:10px 0; padding-left:4px; }
+  ul { margin:8px 0; padding-left:22px; }
+  li { margin:4px 0; }
+  .note { background:#fffbeb; border:1px solid #fde68a; border-radius:6px;
+          padding:10px 14px; margin:12px 0; font-size:14px; }
+  .kbd { background:var(--soft); border:1px solid var(--line); border-radius:4px;
+         padding:1px 6px; font-family:Consolas,monospace; font-size:13px; }
+  code { background:var(--soft); border-radius:4px; padding:1px 5px;
+         font-family:Consolas,monospace; font-size:13px; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--soft); }
+  footer { margin-top:44px; padding-top:14px; border-top:1px solid var(--line);
+           color:var(--mut); font-size:13px; }
+  @media print { body { font-size:12.5px; } nav.toc { display:none; } }
+</style>
+</head>
+<body>
+<main>
+<div class="toplink"><a href="/en/">&larr; Back to SourceLens home</a> &nbsp;·&nbsp; <a href="/" lang="zh-CN">中文首页</a></div>
+<header class="hero">
+  <h1>SourceLens User Guide</h1>
+  <div class="sub">This manual corresponds to <b>4.0</b> and matches the shipped feature set;
+    it is updated together with each release. 中文版：<a href="/help/" hreflang="zh-CN" lang="zh-CN">用户手册（中文）</a></div>
+</header>
+
+<nav class="toc">
+  <b>Contents</b>
+  <a href="#s1">1. Interface overview</a><a href="#s2">2. Comparison workflow</a>
+  <a href="#s3">3. History database</a><a href="#s4">4. Typo dictionary</a><a href="#s5">5. OCR conversion</a><a href="#s6">6. Reading the results</a>
+</nav>
+
+<h2 id="s1">1. Interface overview</h2>
+<p>The main window has two tabs: <b>Comparison</b> (the daily workflow) and <b>OCR conversion</b> (a standalone converter). Menu bar:</p>
+<ul>
+  <li><b>File</b>: add files / add folder, export report, exit;</li>
+  <li><b>Metrics &amp; params</b>: Analysis params… (risk thresholds / workers / fingerprint toggle, with the metrics dialog entry), Metrics…, Enable document fingerprints (checkbox);</li>
+  <li><b>Settings</b>: Manage typo dictionary (all active entries; add/edit/delete plus space-separated CSV import/export), Query local history on compare (checkbox), Auto-save to history after compare (checkbox), cloud database setup, local data management;</li>
+  <li><b>Help</b>: User guide (this file), About (version, website <a href="https://sourcelens.weibaba.fun">https://sourcelens.weibaba.fun</a>, feedback feedback@weibaba.fun).</li>
+</ul>
+<p>Main layout: file actions + project name (<b>* required</b>, red hint) + "Analysis params…" button + read-only config summary (thresholds / workers / fingerprint / dictionary count) + "Typo review…" button + file list + compare buttons + six result tabs.</p>
+
+<h2 id="s2">2. Comparison workflow</h2>
+<ol class="steps">
+  <li><b>Add files</b>: multi-select is supported; the file list shows name / size / type / bidder company / status. <span class="kbd">Del</span> or the context menu removes the selected rows; click a header to sort. <b>Bidder companies are parsed automatically right after loading</b> (fills blanks only, never overwrites): auto-filled cells are shown in <b>blue</b> with the hover hint "for reference, please confirm" and turn normal once you double-check or edit them; unrecognised names stay blank for manual entry.</li>
+  <li><b>Maintain bidder companies</b> (history-related): "Parse company names" re-runs recognition any time (again blanks only); double-click a company cell to edit. The project name above applies to the whole batch and is <b>required</b>: while empty the label reads "Project name (* required)" in warning colour with a pale-yellow input box, and comparison cannot start.</li>
+  <li><b>Set parameters</b>:
+    <ul>
+      <li>High / medium risk thresholds (defaults 60 / 30): changing them re-judges the grouping immediately, no re-analysis needed;</li>
+      <li>Worker count: OCR parallelism;</li>
+      <li>Fingerprint master switch: off skips the fingerprint channel entirely (fingerprint evidence no longer scores).</li>
+    </ul>
+  </li>
+  <li><b>Choose metric plugins</b>: the "Metrics…" button in the parameter area opens the settings window — every metric can be enabled or disabled with a custom weight (0.00–1.00); <b>enabled weights must sum to exactly 1.00 (100%)</b> — anything else triggers a red warning and blocks saving. Weights drive the style-channel aggregation behind the "similar writing style" evidence item; fingerprint metrics carry their evidence-level notes; metrics marked "(slow)" or "(off by default)" (noise-correlation, rendered line-break comparison) are opt-in — rendered line-break comparison needs local Office. "Restore defaults" resets every toggle and weight. Changes apply from the next comparison.</li>
+</ol>
+<div class="note"><b>Scoring (evidence accumulation):</b> the total is the accumulated risk points of all evidence items (0–100) — hard-evidence fingerprint +55 (including <b>matching metadata feature values</b>: author / last-modified-by / company being the same real, distinctive value on both sides — a forgeable field left uncleared and identical is nearly self-evidencing; non-matches or empty values never reduce the score), strong-evidence fingerprint hit rates ≥85%/≥70%/≥50% adding +40/+28/+18, each accepted co-occurring typo +12, <b>identical passages of ≥50 characters +15 each</b>, writing-style similarity ≥85%/≥70%/≥50% adding +12/+8/+4, environment fingerprints +2 per class; rendered line-break agreement below 35% (layout provably divergent) is a cancelling item: −25 and a cap of 25. Totals at or above the high threshold (default 60) → <b>high risk</b>, at or above the medium threshold (default 30) → <b>medium risk</b>, otherwise <b>low risk</b>. Per-pair evidence is itemised on the Evidence tab.</div>
+<ol class="steps" start="5">
+  <li><b>Start comparison</b>: the progress bar advances stage by stage (extraction → fingerprints → segmentation/template removal → features → pairwise → clustering → history), the per-file status column updates live (pending → extracted → extracted·fingerprinted → done) and the timestamped log records every stage for archiving.
+    <div class="note"><b>Scanned-page recognition (two modes):</b> the default "fast" mode OCRs only pages with no text layer at all; scanned pages carrying a thin text layer (header, page number, stamp) are analysed from that layer. To OCR those pages in full, tick <b>"Full OCR (deep-scan scanned pages)"</b> in "Analysis params…" — when you press Start, a dialog first reports how many pages need recognition and the estimated time (about 1.25 s/page at 8 threads), and you can skip it for this run only. Progress advances per page as "document i/N · OCR: done/total pages" and the log ends with the text-page / OCR-page split; results are cached per document, so later runs complete in seconds (cancelling mid-way loses at most the current document's OCR work). With many scanned pages, raise the worker count.</div>
+  </li>
+  <li><b>Manual typo review</b>: after a comparison, if the active dictionary hits typos that <b>co-occur on both sides</b>, the review window pops up <b>immediately</b> — matching covers the <b>entire text</b> of every document (hits inside shared boilerplate included; wordings found in a single document are not listed). Each row shows the suspected wording, the correct form, the documents it appears in, quoted sentences from both documents (5 characters around the typo, the typo itself in <b>red bold</b>) and page numbers (page A / page B):
+    <ul>
+      <li><b>Documents</b>: the document numbers the wording appears in (comma-separated, e.g. "1,3"); accepted rows score. The column has a fixed width and wraps; the page-A/page-B columns wrap the same way; sentence and verdict columns always show in full;</li>
+      <li><b>Accept</b>: it really is a typo — the item <b>counts toward this comparison's score</b> (+12 each, a strong same-origin signal); it does not affect future batches;</li>
+      <li><b>Reject</b>: correct wording as it stands — not scored, and <b>never judged again (long-term)</b>; clicking the same button again undoes the verdict;</li>
+      <li><b>Unhandled</b> (default): not scored this time, no effect on the future;</li>
+      <li><b>Bulk actions</b>: multi-select rows with <span class="kbd">Ctrl</span> / <span class="kbd">Shift</span>, then use "Accept selected / Reject selected" at the bottom (both disabled with no selection);</li>
+      <li><b>Open any time</b>: the "Typo review…" button in the parameter area reopens the window without waiting for a comparison — it lists every dictionary hit with the current verdict pre-filled, and changes recompute instantly;</li>
+      <li>"Apply and recompute" immediately recalculates totals, verdicts and clustering (no re-analysis); "Later" keeps the current scores and asks again next time.</li>
+    </ul>
+  </li>
+  <li><b>Read the results</b> (six tabs):
+    <ul>
+      <li><b>Bid-price patterns</b> (shown when prices are detected): a batch verdict, a bar chart of every document's amount (low to high, with differences and ratios) and <b>per-rule mini charts R1–R5</b> — arithmetic sequence (adjacent differences against the mean) / fixed ratio (ratio scatter with common-discount target lines) / shared trailing digits (last 2–3 digit rows) / multiple relations (multiples of the lowest bid with integer ticks) / spread rate (spread band against the threshold band); red = hit, grey = no hit, chart numbers and the verdict text share one source;</li>
+      <li><b>Clusters</b>: suspected same-origin groups. <b>Grouping follows the pairwise matrix exactly</b> — any pair whose risk points reach the high threshold joins the same group (connected components), so "high-risk in the matrix yet isolated in the cluster" cannot happen; a group's score is the <b>arithmetic mean of all its internal pairs</b> (hover for the pair list and the grouping rule), a document's score is its highest pair within the group;</li>
+      <li><b>Pairwise matrix</b>: risk points and verdict (high / medium / low) for every pair, the redder the riskier;</li>
+      <li><b>Evidence</b>: pick a pair from the drop-down (ordered by risk points); the header itemises the <b>risk points and every evidence contribution</b>, followed by per-plugin hits (co-occurring typos / shared frequent words / shared boilerplate, with complete page lists) and highly similar passages;</li>
+      <li><b>Fingerprints</b>: the full detail table of every fingerprint metric (metric / status / level / result) across the hard / strong / corroborating levels; "compared, no match" is noted in grey; not-applicable / no-data / switched-off states are each explained;</li>
+      <li><b>History matches</b>: per-document hits in the local / cloud history database by identity code (historical project / company / file name / time / reporting unit).</li>
+    </ul>
+  </li>
+  <li><b>Adjust thresholds</b>: change them after the fact and the grouping re-forms instantly.</li>
+  <li><b>Export the report</b>: HTML, with a timestamp prefix (<code>YYYYMMDDHHMMSS_SourceLens_report.html</code>), six chapters (clusters / matrix / list / evidence / fingerprints / history).</li>
+</ol>
+
+<h2 id="s3">3. History database</h2>
+<ul>
+  <li><b>Identity code</b>: the SHA-256 of the whole file. Renaming, copying or transferring a file keeps the code; editing its content changes it.</li>
+  <li><b>Local database</b>: zero-config, <code>data\history.db</code> beside the program; "Query local history on compare" and "Auto-save to history after compare" are on by default. Queries run before writes: records saved this round only take part in matching from the next round.</li>
+  <li><b>Cloud database</b> (optional): enable it in Settings and fill in the PostgreSQL connection; "cloud history compare" and "auto upload" toggle independently, and the reporting unit is stored with each record. The cloud keeps archive data only (identity codes / fingerprints / occurrence records), never document texts.</li>
+</ul>
+
+<h2 id="s4">4. Typo dictionary</h2>
+<p>"Settings → Manage typo dictionary" manages <b>all active entries</b> (981 built-in plus your edits): double-click to edit, add, delete (built-in entries can be deleted too) and full CSV import/export — one "wrong correct" pair per line, space-separated; export, edit and re-import to delete entries or fix their direction, with automatic direction checking on import (apparently reversed rows ask for confirmation). Your overlay persists in <code>%APPDATA%\SourceLens\typos_extra.csv</code> (edits) and <code>typos_removed.csv</code> (deletions) and reloads on the next start. Co-occurring typos are a key style-channel signal — the cleaner the dictionary, the more reliable the results.</p>
+<div class="note"><b>Dictionary-only detection:</b> typos are judged exclusively by exact dictionary matching (981 built-in entries + your own); the old "4-character length cap" and the "suspected writing" channel (tokenizer-based, too noisy) were removed in 4.0. Entries are exact substring matches, so long entries are equally accurate, and matching tolerates line breaks and small amounts of whitespace inside a word (PDF line-by-line extraction and OCR frequently split words). Matching covers the <b>entire text</b> of every document (typos inside boilerplate count and score too); the review window lists only <b>co-occurring</b> wordings as a same-origin signal — a typo found in a single document is not listed and does not score (each run logs a "typo dictionary" statistics line plus the co-occurrence word list so you can confirm the dictionary is actually matching). Remove any false positive from the dictionary manager.</div>
+
+<h2 id="s5">5. OCR conversion</h2>
+<p>The "OCR conversion" tab: pick PDF files (multi-select) → output format (txt / docx) and directory → start. Scanned pages are OCR'd automatically; during a comparison, a page counts as scanned when its text is sparse <b>and</b> the page is dominated by a full-page image — scanned PDFs often carry a thin text layer (header, page number, stamp, a few dozen characters) that a character-count-only rule would mistake for a normal text page and silently skip, losing the whole body; such pages are always OCR'd (conversions are cached per file as well).</p>
+
+<h2 id="s6">6. Reading the results</h2>
+<ul>
+  <li>Style scores ≥80 suggest the same author, 60–80 are inconclusive, &lt;60 suggests different authors (default thresholds, calibratable);</li>
+  <li>Cross-confirming channels are what count: a high style score plus hard fingerprint evidence is the strongest result; a single corroboration is only a lead;</li>
+  <li>Corroborating evidence (metadata, layout) can be edited or forged — treat it critically; missing metadata does not imply different origins;</li>
+  <li>Noise correlation is experimental: no detected correlation does not imply different origins (compression and binarisation destroy noise information);</li>
+  <li>RSID hits may come from a shared template — cross-check against the template situation;</li>
+  <li>This tool assists human judgement only; the final call always rests with a manual review of the originals.</li>
+</ul>
+
+<footer>SourceLens 4.0 · User Guide · content reflects the released software · <a href="https://sourcelens.weibaba.fun">sourcelens.weibaba.fun</a> · <a href="mailto:feedback@weibaba.fun">feedback@weibaba.fun</a></footer>
+</main>
+</body>
+</html>
